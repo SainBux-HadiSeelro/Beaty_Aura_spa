@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(200, 169, 106, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(143, 175, 154, 0.16), transparent 28%),
+    #f6f1ea;
+  color: #2b2623;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent 12%);
+  opacity: 0.7;
+}
+
+* {
+  border-color: rgba(43, 38, 35, 0.08);
+}
+
+::selection {
+  background: rgba(200, 169, 106, 0.28);
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-[-0.03em];
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-gap {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .glass-panel {
+    @apply rounded-shell border border-white/40 bg-white/45 shadow-glass backdrop-blur-xl;
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-flex items-center rounded-full bg-white/60 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em];
+    border: 1px solid rgba(43, 38, 35, 0.1);
+    color: rgba(43, 38, 35, 0.65);
+  }
+
+  .section-title {
+    @apply font-serif text-4xl leading-tight text-charcoal sm:text-5xl;
+  }
+
+  .section-copy {
+    @apply max-w-2xl text-base leading-8 sm:text-lg;
+    color: rgba(43, 38, 35, 0.7);
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-charcoal px-6 py-3.5 text-sm font-medium text-sand transition duration-300 hover:-translate-y-0.5 hover:bg-charcoal/90;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border bg-white/50 px-6 py-3.5 text-sm font-medium text-charcoal transition duration-300 hover:-translate-y-0.5 hover:bg-white/80;
+    border-color: rgba(43, 38, 35, 0.12);
+  }
+
+  .button-secondary:hover {
+    border-color: rgba(143, 175, 154, 0.5);
+  }
+}
